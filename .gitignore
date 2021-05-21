@@ -22,3 +22,6 @@ vendor/
 *.csv
 *.xlsx
 app.http
+*.pem
+*.cer
+*.key

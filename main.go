@@ -11,14 +11,22 @@ import (
 
 func main() {
 
+	http.HandleFunc("/", Hello)
+
 	http.HandleFunc("/dlzip", DownZip)
 
-	err := http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServeTLS(":8080", "fugui_cert.pem", "fugui_key.pem", nil)
 	if err != nil {
 		// 发生异常打印日志
 		fmt.Println(err, "监听端口错误")
 	}
 
+}
+
+func Hello(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Println("23453534534")
+	w.Write([]byte("hello"))
 }
 
 func DownZip(w http.ResponseWriter, r *http.Request) {
